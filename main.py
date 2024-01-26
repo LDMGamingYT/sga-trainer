@@ -5,12 +5,13 @@ from tkextrafont import Font
 import words, sys
 
 def check_answer(event):
-    if prompt.cget("text") == text_field.get() + event.char:
+    if prompt.cget("text") == text_field.get():
         regen_prompt()
         score.config(text=score.cget("text") + 1)
         
 def regen_prompt():
     prompt.config(text=word_list.pick(3))
+    text_field.delete(0, tk.END)
 
 word_list = words.WordList(words.DEFAULT)
 
@@ -27,7 +28,7 @@ if sys.argv[1] == "--debug":
 score = tk.Label(window, text=0, font=("", 14))
 prompt = tk.Label(window, text=word_list.pick(3), font=sga_font)
 text_field = tk.Entry(window, width=64)
-text_field.bind("<Key>", check_answer)
+text_field.bind("<KeyRelease>", check_answer)
 
 tk.Label(window, text="Score").place(x=10, y=10)
 score.place(x=10, y=30)
