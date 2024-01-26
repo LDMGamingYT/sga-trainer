@@ -13,7 +13,7 @@ window = tk.Tk()
 window.title("SGA Trainer")
 
 # init SGA font
-sga_font = Font(file="sga.ttf", family="Enchantment Proper")
+sga_font = Font(file="resources/sga.ttf", family="Enchantment Proper")
 
 label = tk.Label(window, text="What does this say?", font=("", 16))
 prompt_label = tk.Label(window, text=prompt, font=sga_font)

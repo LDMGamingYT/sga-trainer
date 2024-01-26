@@ -2,10 +2,10 @@
 
 import random
 
-DEFAULT = "words/default.txt"
-SHORT = "words/short.txt"
-MEDIUM = "words/medium.txt"
-LONG = "words/long.txt"
+DEFAULT = "resources/words/default.txt"
+SHORT = "resources/words/short.txt"
+MEDIUM = "resources/words/medium.txt"
+LONG = "resources/words/long.txt"
 
 class WordList:
     def __init__(self, filename: str):
