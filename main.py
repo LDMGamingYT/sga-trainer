@@ -1,6 +1,5 @@
 import tkinter as tk
 import pyglet
-from tkinter import font
 
 def check_answer():
     if prompt == text_field.get():
