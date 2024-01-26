@@ -1,3 +1,5 @@
+# Copyright (c) 2024 Logan Dhillon
+
 import tkinter as tk
 import pyglet
 
