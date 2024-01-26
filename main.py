@@ -46,7 +46,7 @@ prompt = tk.Label(window, text=word_list.pick(word_count), font=sga_font)
 text_field = tk.Entry(window, width=64)
 text_field.bind("<KeyRelease>", check_answer)
 
-word_count_spinbox = tk.Spinbox(window, from_=1, to=20, width=5, command=set_word_count)
+word_count_spinbox = tk.Spinbox(window, from_=1, to=20, value=word_count, width=5, command=set_word_count)
 
 # place tkinter elements
 tk.Label(window, text="Score").place(x=10, y=10)
