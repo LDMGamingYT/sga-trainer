@@ -36,7 +36,7 @@ def regen_prompt():
 
 # init SGA font
 sga_font = Font(file="resources/sga.ttf", family="Enchantment Proper")
-if sys.argv[1] == "--debug":
+if len(sys.argv) > 1 and sys.argv[1] == "--debug":
     sga_font = ("", 16)
 
 # init tkinter elements
