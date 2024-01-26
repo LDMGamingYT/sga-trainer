@@ -9,8 +9,8 @@ word_list = words.WordList(words.DEFAULT)
 word_count = 3
 def set_word_count():
     global word_count
-    print(f"Updating word count from {word_count} to {int(spinbox.get())}")
-    word_count = int(spinbox.get())
+    print(f"Updating word count from {word_count} to {int(word_count_spinbox.get())}")
+    word_count = int(word_count_spinbox.get())
 
 def check_answer(event):
     if prompt.cget("text") == text_field.get():
@@ -37,14 +37,14 @@ prompt = tk.Label(window, text=word_list.pick(word_count), font=sga_font)
 text_field = tk.Entry(window, width=64)
 text_field.bind("<KeyRelease>", check_answer)
 
-spinbox = tk.Spinbox(window, from_=1, to=20, width=5, command=set_word_count)
+word_count_spinbox = tk.Spinbox(window, from_=1, to=20, width=5, command=set_word_count)
 
 # place tkinter elements
 tk.Label(window, text="Score").place(x=10, y=10)
 score.place(x=10, y=30)
 
 tk.Label(window, text="Word Count").place(relx=1.0, x=-10, y=10, anchor="ne")
-spinbox.place(relx=1.0, x=-10, y=32, anchor="ne")
+word_count_spinbox.place(relx=1.0, x=-10, y=32, anchor="ne")
 
 tk.Label(window, text="What does this say?", font=("", 16)).pack(pady=20)
 prompt.pack(padx=10)
