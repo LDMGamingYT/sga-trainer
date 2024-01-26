@@ -1,1 +1,1 @@
-pyglet==2.0.10
+tkextrafont==0.6.3
