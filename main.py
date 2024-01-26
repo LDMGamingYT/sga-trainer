@@ -9,12 +9,13 @@ window = tk.Tk()
 window.title("SGA Trainer")
 
 # word list stuff
-word_list = words.WordList(words.word_lists["Default"])
-
-selected_option = tk.StringVar(window)
-selected_option.set("Default")
+selected_word_list = tk.StringVar(window)
+selected_word_list.set("Default")
+word_list = words.WordList(words.word_lists[selected_word_list.get()])
 
 word_count = 3
+
+# actions run from GUI
 def set_word_count():
     global word_count
     print(f"Updating word count from {word_count} to {int(word_count_spinbox.get())}")
@@ -60,6 +61,6 @@ prompt.pack(padx=10)
 text_field.pack(pady=(30, 0), padx=20)
 tk.Button(window, text="Give Up", command=regen_prompt).pack(pady=10)
 
-tk.OptionMenu(window, selected_option, *words.word_lists, command=update_word_list).pack()
+tk.OptionMenu(window, selected_word_list, *words.word_lists, command=update_word_list).pack()
 
 window.mainloop()

@@ -2,11 +2,6 @@
 
 import random
 
-DEFAULT = "resources/words/default.txt"
-SHORT = "resources/words/short.txt"
-MEDIUM = "resources/words/medium.txt"
-LONG = "resources/words/long.txt"
-
 word_lists = {
     "Default": "resources/words/default.txt", 
     "Short": "resources/words/short.txt", 
