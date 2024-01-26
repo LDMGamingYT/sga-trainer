@@ -4,8 +4,8 @@ import tkinter as tk
 from tkextrafont import Font
 import words, sys
 
-def check_answer():
-    if prompt.cget("text") == text_field.get():
+def check_answer(event):
+    if prompt.cget("text") == text_field.get() + event.char:
         regen_prompt()
         score.config(text=score.cget("text") + 1)
         
@@ -27,14 +27,14 @@ if sys.argv[1] == "--debug":
 score = tk.Label(window, text=0, font=("", 14))
 prompt = tk.Label(window, text=word_list.pick(3), font=sga_font)
 text_field = tk.Entry(window, width=64)
+text_field.bind("<Key>", check_answer)
 
 tk.Label(window, text="Score").place(x=10, y=10)
 score.place(x=10, y=30)
 
 tk.Label(window, text="What does this say?", font=("", 16)).pack(pady=20)
 prompt.pack()
-text_field.pack(pady=30, padx=20)
-tk.Button(window, text="Submit", command=check_answer).pack()
-tk.Button(window, text="Give Up", command=regen_prompt).pack()
+text_field.pack(pady=(30, 0), padx=20)
+tk.Button(window, text="Give Up", command=regen_prompt).pack(pady=10)
 
 window.mainloop()
