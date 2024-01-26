@@ -2,17 +2,18 @@ import tkinter as tk
 import pyglet
 from tkinter import font
 
-window = tk.Tk()
-window.title("SGA Trainer")
-
-pyglet.font.add_file('sga.ttf')
-
 def check_answer():
-    print(prompt == text_field.get())
     if prompt == text_field.get():
         prompt_label.config(text="WOOHOO")
 
 prompt = "the quick brown fox jumps over the lazy dog"
+
+# init SGA font
+pyglet.font.add_file('sga.ttf')
+
+# do tkinter/gui stuff
+window = tk.Tk()
+window.title("SGA Trainer")
 
 label = tk.Label(window, text="What does this say?", font=("", 16))
 prompt_label = tk.Label(window, text=prompt, font=("Enchantment Proper", 16))
