@@ -4,13 +4,25 @@ import tkinter as tk
 from tkextrafont import Font
 import words, sys
 
-word_list = words.WordList(words.DEFAULT)
+# init window first so `tkextrafont` doesn't freak out
+window = tk.Tk()
+window.title("SGA Trainer")
+
+# word list stuff
+word_list = words.WordList(words.word_lists["Default"])
+
+selected_option = tk.StringVar(window)
+selected_option.set("Default")
 
 word_count = 3
 def set_word_count():
     global word_count
     print(f"Updating word count from {word_count} to {int(word_count_spinbox.get())}")
     word_count = int(word_count_spinbox.get())
+    
+def update_word_list(value):
+    global word_list
+    word_list = words.WordList(words.word_lists[value])
 
 def check_answer(event):
     if prompt.cget("text") == text_field.get():
@@ -20,10 +32,6 @@ def check_answer(event):
 def regen_prompt():
     prompt.config(text=word_list.pick(word_count))
     text_field.delete(0, tk.END)
-
-# init window first so `tkextrafont` doesn't freak out
-window = tk.Tk()
-window.title("SGA Trainer")
 
 # init SGA font
 sga_font = Font(file="resources/sga.ttf", family="Enchantment Proper")
@@ -51,5 +59,7 @@ prompt.pack(padx=10)
 
 text_field.pack(pady=(30, 0), padx=20)
 tk.Button(window, text="Give Up", command=regen_prompt).pack(pady=10)
+
+tk.OptionMenu(window, selected_option, *words.word_lists, command=update_word_list).pack()
 
 window.mainloop()

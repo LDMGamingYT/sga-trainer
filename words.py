@@ -7,6 +7,13 @@ SHORT = "resources/words/short.txt"
 MEDIUM = "resources/words/medium.txt"
 LONG = "resources/words/long.txt"
 
+word_lists = {
+    "Default": "resources/words/default.txt", 
+    "Short": "resources/words/short.txt", 
+    "Medium": "resources/words/medium.txt", 
+    "Long": "resources/words/long.txt"
+}
+
 class WordList:
     def __init__(self, filename: str):
         with open(filename, 'r') as file:
