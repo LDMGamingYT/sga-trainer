@@ -18,7 +18,6 @@ word_count = 3
 # actions run from GUI
 def set_word_count():
     global word_count
-    print(f"Updating word count from {word_count} to {int(word_count_spinbox.get())}")
     word_count = int(word_count_spinbox.get())
     
 def update_word_list(value):
