@@ -14,6 +14,7 @@ def regen_prompt():
 
 word_list = words.WordList(words.DEFAULT)
 
+# init window first so `tkextrafont` doesn't freak out
 window = tk.Tk()
 window.title("SGA Trainer")
 
@@ -22,6 +23,7 @@ sga_font = Font(file="resources/sga.ttf", family="Enchantment Proper")
 if sys.argv[1] == "--debug":
     sga_font = ("", 16)
 
+# tkinter element stuff
 score = tk.Label(window, text=0)
 prompt = tk.Label(window, text=word_list.pick(3), font=sga_font)
 text_field = tk.Entry(window, width=64)
